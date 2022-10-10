@@ -1,3 +1,5 @@
+
+//declarative pip[eline]
 pipeline{
     agent any
 
