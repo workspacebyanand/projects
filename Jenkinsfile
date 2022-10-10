@@ -52,9 +52,9 @@ pipeline{
         // print pom.xml values
         stage("print Environment values"){
             steps{
-                echo "ArtifactId is "${ArtifactId}""
-                echo "Version is "${Version}""
-                echo "Name is "${Name}""
+                echo "ArtifactId is '${ArtifactId}'"
+                echo "Version is '${Version}'"
+                echo "Name is '${Name}'"
             }
 
         }
