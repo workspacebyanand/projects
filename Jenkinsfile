@@ -13,6 +13,7 @@ pipeline{
         ArtifactId = readMavenPom().getArtifactId()
         Version = readMavenPom().getVersion()
         Name = readMavenPom().getName()
+        GroupId = readMavenPom().getGroupId()
 
     }
 
@@ -34,17 +35,17 @@ pipeline{
             steps{
                 // jenkins pipline script using snippet generator
                 nexusArtifactUploader artifacts:
-                 [[artifactId: 'demo-project',
+                 [[artifactId: ''${ArtifactId}'',
                   classifier: '', 
-                  file: 'target/demo-project-0.0.4-SNAPSHOT.jar',
+                  file: 'target/'${ArtifactId}'-'${Version}.jar'',
                   type: 'jar']], 
                   credentialsId: 'd7040dca-986d-4147-9712-9f19fe20fdb4', 
-                  groupId: 'com.cg', 
+                  groupId: '${GroupId}', 
                   nexusUrl: '172.20.10.136:8081', 
                   nexusVersion: 'nexus3', 
                   protocol: 'http', 
                   repository: 'AnandDevOpsLab-SNAPSHOT', 
-                  version: '0.0.4-SNAPSHOT'
+                  version: ''${Version}''
             }
 
         }
@@ -55,6 +56,7 @@ pipeline{
                 echo "ArtifactId is '${ArtifactId}'"
                 echo "Version is '${Version}'"
                 echo "Name is '${Name}'"
+                echo "GroupId is '${GroupId}'"
             }
 
         }
