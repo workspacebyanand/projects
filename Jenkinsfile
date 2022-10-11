@@ -35,7 +35,7 @@ pipeline{
             steps{
                 script{
 
-                    def Nexusrepo = Version.endsWith("SNAPSHOT") ? "AnandDevopsLab-SNAPSHOT" : "AnandDevopsLab-RELEASE "
+                    def Nexusrepo = Version.endsWith("SNAPSHOT") ? "AnandDevOpsLab-SNAPSHOT" : "AnandDevOpsLab-RELEASE "
                     // jenkins pipline script using snippet generator
 
                     nexusArtifactUploader artifacts:
